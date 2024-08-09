@@ -11,7 +11,7 @@ const Login = () => {
     const loginHandler = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await axios.post('http://localhost:5000/api/users/login', { email, password });
+            const { data } = await axios.post('https://linktreebackend-1.onrender.com/api/users/login', { email, password });
             localStorage.setItem('token', data.token);
             navigate('/dashboard');
         } catch (error) {

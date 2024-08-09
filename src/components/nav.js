@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const navigate = useNavigate();
-    const token = localStorage.getItem('token'); // Check if user is logged in by retrieving the token
+    const token = localStorage.getItem('token'); 
 
     return (
         <nav className="bg-lime-900 p-4">

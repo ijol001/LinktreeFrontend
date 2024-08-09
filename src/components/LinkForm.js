@@ -10,7 +10,7 @@ const LinkForm = ({ setLinks }) => {
         const token = localStorage.getItem('token');
         const config = { headers: { Authorization: `Bearer ${token}` } };
         try {
-            const { data } = await axios.post('http://localhost:5000/api/links', { title, url }, config);
+            const { data } = await axios.post('https://linktreebackend-1.onrender.com/api/links', { title, url }, config);
             setLinks((prevLinks) => [...prevLinks, data]);
             setTitle('');
             setUrl('');

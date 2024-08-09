@@ -14,7 +14,7 @@ const Dashboard = () => {
             const token = localStorage.getItem('token');
             const config = { headers: { Authorization: `Bearer ${token}` } };
             try {
-                const { data } = await axios.get('http://localhost:5000/api/links', config);
+                const { data } = await axios.get('https://linktreebackend-1.onrender.com/api/links', config);
                 setLinks(data);
             } catch (error) {
                 console.error('Error fetching links:', error);

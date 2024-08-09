@@ -12,7 +12,7 @@ const Register = () => {
     const registerHandler = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await axios.post('http://localhost:5000/api/users/register', { username, email, password });
+            const { data } = await axios.post('https://linktreebackend-1.onrender.com/api/users/register', { username, email, password });
             localStorage.setItem('token', data.token);
             navigate('/dashboard');
         } catch (error) {
