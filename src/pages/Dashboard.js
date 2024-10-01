@@ -51,16 +51,18 @@ const Dashboard = () => {
                 <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
                     <h1 className="text-white text-xl font-bold italic font-serif">LinkTree</h1>
                     <Navbar />
-                </div>
-            </header>
-            <div className='flex flex-col items-center mt-11 px-4 md:px-0 flex-grow'>
-            <LinkForm setLinks={addLinkHandler} />
-            <LinkList links={links} deleteLinkHandler={deleteLinkHandler} />
-            <div className="mt-6 bg-lime-600 text-white px-4 py-2 rounded-lg hover:bg-lime-700">
+                    <div className="mt-6 bg-lime-600 text-white px-4 py-2 rounded-lg hover:bg-lime-700">
                 <button onClick={logoutHandler} >Logout</button>
             </div>
+                </div>
+            </header>
+            <div className=' flex flex-col items-center mt-11 px-4 md:px-0 flex-grow '>
+            <LinkForm setLinks={addLinkHandler} />
+            {links.length > 0 &&(
+            <LinkList links={links} deleteLinkHandler={deleteLinkHandler} />)}
+            
             </div>
-            <footer className="w-full bg-lime-900 p-4 mt-7">
+            {/* <footer className="w-full bg-lime-900 p-4 ">
                 <div className="container mx-auto text-white flex flex-col md:flex-row justify-between items-center">
                     <p className="mb-4 md:mb-0">&copy; 2024 LinkTree</p>
                     <div className="space-x-4">
@@ -68,7 +70,7 @@ const Dashboard = () => {
                         <a href="#" className="text-white">Terms of Service</a>
                     </div>
                 </div>
-            </footer>
+            </footer> */}
         </div>
     );
 };

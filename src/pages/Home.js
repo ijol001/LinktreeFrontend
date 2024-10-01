@@ -17,14 +17,14 @@ const Home = () => {
                 </div>
             </header>
 
-            <main className="flex flex-col items-center mt-11 px-4 md:px-0 flex-grow">
-                <section className="text-center mb-18 mt-8">
-                    <h2 className="text-6xl font-bold text-gray-800 mb-7 font-serif">Welcome to  Linktree</h2>
+            <main className="bg-cyan-50 flex flex-col items-center px-4 md:px-0 flex-grow">
+                <section className="text-center mb-18">
+                    <h2 className="text-6xl font-bold text-gray-800 mb-7 font-serif mt-20">Welcome to  Linktree</h2>
                     <p className="text-gray-600 text-xl italic mb-9">
                         Create your own linktree page and share it with the world!
                     </p>
                     <button 
-                        className="bg-lime-600 text-white px-8 py-4 rounded hover:bg-lime-700 transition-colors duration-300"
+                        className="bg-lime-600 text-white px-8 py-4 rounded hover:bg-lime-700 transition-colors duration-300 mt-20"
                         onClick={handleSignUpClick}
                     >
                         Sign Up Now

@@ -11,7 +11,8 @@ const Navbar = () => {
                 <div className="flex space-x-4">
                     {token ? (
                         <>
-                            <Link to="/dashboard" className="text-white">Dashboard</Link>
+                            <Link to="/dashboard" className="text-white text-xl font-bold">Dashboard</Link>
+                            
                         </>
                     ) : (
                         <>

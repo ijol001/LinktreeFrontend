@@ -14,13 +14,13 @@ const LinkList = ({ links, deleteLinkHandler }) => {
                 <tbody>
                     {links.map((link) => (
                         <tr key={link._id}>
-                            <td className="py-2 px-4 border-b">{link.title}</td>
-                            <td className="py-2 px-4 border-b">
+                            <td className="py-2 px-4 border-b text-center">{link.title}</td>
+                            <td className="py-2 px-4 border-b text-center">
                                 <a href={link.url} className="text-lime-600 hover:underline" target="_blank" rel="noopener noreferrer">
                                     {link.url}
                                 </a>
                             </td>
-                            <td className="py-2 px-4 border-b">
+                            <td className="py-2 px-4 border-b text-center">
                                 <button
                                     onClick={() => deleteLinkHandler(link._id)}
                                     className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700"

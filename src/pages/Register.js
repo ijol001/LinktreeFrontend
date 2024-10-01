@@ -7,13 +7,18 @@ const Register = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setLoading]= useState(false);
     const navigate = useNavigate();
 
     const registerHandler = async (e) => {
         e.preventDefault();
+        setLoading(true);
         try {
             const { data } = await axios.post('https://linktreebackend-1.onrender.com/api/users/register', { username, email, password });
             localStorage.setItem('token', data.token);
+            setTimeout(() => {
+               setLoading(false); 
+            }, 2000);
             navigate('/dashboard');
         } catch (error) {
             console.error(error);
@@ -65,11 +70,18 @@ const Register = () => {
                         />
                     </div>
                     
-                    <button 
-                        type="submit" 
-                        className="w-full bg-lime-600 text-white py-3 rounded-lg font-semibold hover:bg-lime-700 transition-colors duration-300"
+                    <button
+                        type="submit"
+                        className={`w-full bg-lime-600 text-white py-3 rounded-lg font-semibold 
+                                   ${loading ? 'opacity-75 cursor-not-allowed' : 'hover:bg-lime-700'} 
+                                   transition-colors duration-300 flex justify-center items-center`}
+                        disabled={loading}
                     >
-                        Sign Up
+                        {loading ? (
+                            <div className="w-6 h-6 border-4 border-t-transparent border-white border-solid rounded-full animate-spin"></div>
+                        ) : (
+                            'Sign Up'
+                        )}
                     </button>
                     <p className="text-plain mt-3 mb-6 text-center">Already have an account? 
                     <Link to="/login" className="text-lime-600 hover:text-lime-700"> Login</Link>
