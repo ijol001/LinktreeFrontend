@@ -1,0 +1,24 @@
+.bg-background-images {
+    background-color:beige;
+    background-size: cover, contain, auto; /* Adjust sizes for each image */
+    background-position: center center, right center, left top; /* Position each image */
+    background-repeat: no-repeat;
+}
+
+/* Animation to move the background */
+@keyframes move-background {
+    0% {
+        background-position: center center, right center, left top;
+    }
+    50% {
+        background-position: center bottom, right bottom, left bottom;
+    }
+    100% {
+        background-position: center center, right center, left top;
+    }
+}
+
+/* Apply the animation to the background */
+.animate-move-background {
+    animation: move-background 15s linear infinite;
+}

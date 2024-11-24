@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
-import Navbar from '../components/nav';
 
 const Register = () => {
     const [username, setUsername] = useState('');
@@ -14,7 +13,7 @@ const Register = () => {
         e.preventDefault();
         setLoading(true);
         try {
-            const { data } = await axios.post('https://linktreebackend-1.onrender.com/api/users/register', { username, email, password });
+            const { data } = await axios.post('http://localhost:5000/api/users/register', { username, email, password });
             localStorage.setItem('token', data.token);
             setTimeout(() => {
                setLoading(false); 

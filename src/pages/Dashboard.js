@@ -14,7 +14,7 @@ const Dashboard = () => {
             const token = localStorage.getItem('token');
             const config = { headers: { Authorization: `Bearer ${token}` } };
             try {
-                const { data } = await axios.get('https://linktreebackend-1.onrender.com/api/links', config);
+                const { data } = await axios.get('http://localhost:5000/api/links', config);
                 setLinks(data);
             } catch (error) {
                 console.error('Error fetching links:', error);
@@ -27,6 +27,24 @@ const Dashboard = () => {
     const addLinkHandler = (newLink) => {
         setLinks((prevLinks) => [...prevLinks, newLink]);
     };
+
+    const updateLinkHandler = async (id, updatedData) => {
+        try {
+            const token = localStorage.getItem('token');
+            const config = { headers: { Authorization: `Bearer ${token}` } };
+    
+            const { data } = await axios.put(`http://localhost:5000/api/links/${id}`, updatedData, config);
+    
+            setLinks((prevLinks) =>
+                prevLinks.map((link) => (link._id === id ? { ...link, ...data } : link))
+            );
+            console.log('Updating link with id:', id, 'and data:', updatedData);
+
+        } catch (error) {
+            console.error('Error editing link:', error);
+        }
+    };
+    
 
     const deleteLinkHandler = async (id) => {
         try {
@@ -59,7 +77,7 @@ const Dashboard = () => {
             <div className=' flex flex-col items-center mt-11 px-4 md:px-0 flex-grow '>
             <LinkForm setLinks={addLinkHandler} />
             {links.length > 0 &&(
-            <LinkList links={links} deleteLinkHandler={deleteLinkHandler} />)}
+            <LinkList links={links} deleteLinkHandler={deleteLinkHandler} updateLinkHandler={updateLinkHandler}/>)}
             
             </div>
             {/* <footer className="w-full bg-lime-900 p-4 ">

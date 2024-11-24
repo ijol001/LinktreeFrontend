@@ -12,7 +12,7 @@ const Login = () => {
         e.preventDefault();
         setLoading(true);
         try {
-            const { data } = await axios.post('https://linktreebackend-1.onrender.com/api/users/login', { email, password });
+            const { data } = await axios.post('http://localhost:5000/api/users/login', { email, password });
             localStorage.setItem('token', data.token);
             setTimeout(() => {
                 setLoading(false);
@@ -69,7 +69,7 @@ const Login = () => {
                             'Sign In'
                         )}
                     </button>
-                    <p className="text-plain mt-3 mb-6 text-center">Already have an account?
+                    <p className="text-plain mt-3 mb-6 text-center">Don't have an account?
                         <Link to="/register" className="text-lime-600 hover:text-lime-700"> Register</Link>
                     </p>
 
